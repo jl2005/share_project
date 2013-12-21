@@ -1,0 +1,64 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AddRememberTokenToUsers	db/migrate/20131221043112_add_remember_token_to_users.rb	/^class AddRememberTokenToUsers < ActiveRecord::Migration$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:ShareProject
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+CreateProjects	db/migrate/20131221054137_create_projects.rb	/^class CreateProjects < ActiveRecord::Migration$/;"	c
+CreateRelationships	db/migrate/20131221074243_create_relationships.rb	/^class CreateRelationships < ActiveRecord::Migration$/;"	c
+CreateUsers	db/migrate/20131221033506_create_users.rb	/^class CreateUsers < ActiveRecord::Migration$/;"	c
+Project	app/models/project.rb	/^class Project < ActiveRecord::Base$/;"	c
+ProjectsController	app/controllers/projects_controller.rb	/^class ProjectsController < ApplicationController$/;"	c
+Relationship	app/models/relationship.rb	/^class Relationship < ActiveRecord::Base$/;"	c
+RelationshipsController	app/controllers/relationships_controller.rb	/^class RelationshipsController < ApplicationController$/;"	c
+SessionsController	app/controllers/sessions_controller.rb	/^class SessionsController < ApplicationController$/;"	c
+SessionsHelper	app/helpers/sessions_helper.rb	/^module SessionsHelper$/;"	m
+ShareProject	config/application.rb	/^module ShareProject$/;"	m
+StaticPagesController	app/controllers/static_pages_controller.rb	/^class StaticPagesController < ApplicationController$/;"	c
+User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
+UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+UsersHelper	app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
+about	app/controllers/static_pages_controller.rb	/^  def about $/;"	f	class:StaticPagesController
+admin_user	app/controllers/users_controller.rb	/^	def admin_user$/;"	f	class:UsersController
+change	db/migrate/20131221033506_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+change	db/migrate/20131221043112_add_remember_token_to_users.rb	/^  def change$/;"	f	class:AddRememberTokenToUsers
+change	db/migrate/20131221054137_create_projects.rb	/^  def change$/;"	f	class:CreateProjects
+change	db/migrate/20131221074243_create_relationships.rb	/^  def change$/;"	f	class:CreateRelationships
+contact	app/controllers/static_pages_controller.rb	/^  def contact$/;"	f	class:StaticPagesController
+correct_user	app/controllers/projects_controller.rb	/^    def correct_user$/;"	f	class:ProjectsController
+correct_user	app/controllers/users_controller.rb	/^	def correct_user$/;"	f	class:UsersController
+create	app/controllers/projects_controller.rb	/^  def create$/;"	f	class:ProjectsController
+create	app/controllers/relationships_controller.rb	/^  def create$/;"	f	class:RelationshipsController
+create	app/controllers/sessions_controller.rb	/^  def create$/;"	f	class:SessionsController
+create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
+current_user	app/helpers/sessions_helper.rb	/^  def current_user$/;"	f	class:SessionsHelper
+current_user=	app/helpers/sessions_helper.rb	/^  def current_user=(user)$/;"	f	class:SessionsHelper
+current_user?	app/helpers/sessions_helper.rb	/^  def current_user? (user)$/;"	f	class:SessionsHelper
+destroy	app/controllers/projects_controller.rb	/^  def destroy$/;"	f	class:ProjectsController
+destroy	app/controllers/relationships_controller.rb	/^  def destroy$/;"	f	class:RelationshipsController
+destroy	app/controllers/sessions_controller.rb	/^  def destroy$/;"	f	class:SessionsController
+encrypt	app/models/user.rb	/^  def User.encrypt(token)$/;"	F	class:User
+full_title	app/helpers/application_helper.rb	/^	def full_title(page_title)$/;"	f	class:ApplicationHelper
+get_projects	app/models/project.rb	/^  def self.get_projects(user)$/;"	F	class:Project
+get_projects	app/models/user.rb	/^  def get_projects$/;"	f	class:User
+gravatar_for	app/helpers/users_helper.rb	/^  def gravatar_for(user, options = { size: 50 })$/;"	f	class:UsersHelper
+help	app/controllers/static_pages_controller.rb	/^  def help$/;"	f	class:StaticPagesController
+home	app/controllers/static_pages_controller.rb	/^  def home$/;"	f	class:StaticPagesController
+new	app/controllers/projects_controller.rb	/^  def new$/;"	f	class:ProjectsController
+new	app/controllers/sessions_controller.rb	/^	def new$/;"	f	class:SessionsController
+new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
+new_remember_token	app/models/user.rb	/^	def User.new_remember_token$/;"	F	class:User
+project_params	app/controllers/projects_controller.rb	/^    def project_params$/;"	f	class:ProjectsController
+redirect_back_or	app/helpers/sessions_helper.rb	/^  def redirect_back_or(default)$/;"	f	class:SessionsHelper
+show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
+sign_in	app/helpers/sessions_helper.rb	/^  def sign_in(user)$/;"	f	class:SessionsHelper
+sign_out	app/helpers/sessions_helper.rb	/^  def sign_out$/;"	f	class:SessionsHelper
+signed_in?	app/helpers/sessions_helper.rb	/^  def signed_in?$/;"	f	class:SessionsHelper
+signed_in_user	app/controllers/users_controller.rb	/^	def signed_in_user$/;"	f	class:UsersController
+signed_in_user	app/helpers/sessions_helper.rb	/^  def signed_in_user$/;"	f	class:SessionsHelper
+store_location	app/helpers/sessions_helper.rb	/^  def store_location$/;"	f	class:SessionsHelper
+user_params	app/controllers/users_controller.rb	/^	def user_params$/;"	f	class:UsersController

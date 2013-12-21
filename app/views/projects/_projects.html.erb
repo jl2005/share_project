@@ -1,0 +1,6 @@
+<% if @project_items.any? %>
+  <ol class="microposts">
+    <%= @project_items.to_json %>
+    <%= render partial: 'projects/project_item', collection: @project_items%>
+  </ol>
+<% end %>
