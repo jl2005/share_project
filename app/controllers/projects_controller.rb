@@ -27,6 +27,10 @@ class ProjectsController < ApplicationController
     redirect_to root_url
   end
 
+  def show
+    @project = current_user.get_projects
+  end
+
 private
     def project_params
       params.require(:project).permit(:name, :parameter1, :parameter2, :comment)

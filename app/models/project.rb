@@ -7,6 +7,6 @@ class Project < ActiveRecord::Base
   def self.get_projects(user)
     project_ids = "SELECT project_id FROM relationships
                          WHERE user_id = :user_id"
-    where("id IN (#{project_ids})", user_id: user.id).group("name")
+    where("id IN (#{project_ids})", user_id: user.id)
   end
 end

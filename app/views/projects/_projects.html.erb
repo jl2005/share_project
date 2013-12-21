@@ -1,6 +1,11 @@
 <% if @project_items.any? %>
   <ol class="microposts">
-    <%= @project_items.to_json %>
-    <%= render partial: 'projects/project_item', collection: @project_items%>
+    <% @project_items.each do |name, values| %>
+      <%= name %>
+      <% values.each do |v| %>
+        <%= v.to_json %>
+      <% end %>
+      <br />
+    <% end %>
   </ol>
 <% end %>

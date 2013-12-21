@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def get_projects
-    Project.get_projects(self);
+    #TODO group_by中的&是用来做什么的？
+    Project.get_projects(self).group_by(&:name);
   end
 end

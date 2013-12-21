@@ -54,6 +54,7 @@ new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
 new_remember_token	app/models/user.rb	/^	def User.new_remember_token$/;"	F	class:User
 project_params	app/controllers/projects_controller.rb	/^    def project_params$/;"	f	class:ProjectsController
 redirect_back_or	app/helpers/sessions_helper.rb	/^  def redirect_back_or(default)$/;"	f	class:SessionsHelper
+show	app/controllers/projects_controller.rb	/^  def show$/;"	f	class:ProjectsController
 show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
 sign_in	app/helpers/sessions_helper.rb	/^  def sign_in(user)$/;"	f	class:SessionsHelper
 sign_out	app/helpers/sessions_helper.rb	/^  def sign_out$/;"	f	class:SessionsHelper
