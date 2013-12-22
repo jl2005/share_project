@@ -1,6 +1,6 @@
-<% provide(:title, 'Show Project') %>
+<% provide(:title, 'Share Project') %>
 <% if signed_in? %>
-  <h1>Show Project</h1>
+  <h1>Share Project</h1>
   <div class="row">
     <aside class="span4">
       <section>
@@ -9,7 +9,7 @@
     </aside>
     <div class="span8">
       <%= render 'projects/detail_list' %>
-      <%= link_to "Share", share_path,
+      <%= link_to "Cancle", show_path,
                     class: "btn btn-large btn-primary" %>
     </div>
   </div>

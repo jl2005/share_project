@@ -1,0 +1,14 @@
+<ul class="nav nav-pills nav-stacked" style="max-width: 260px;">
+  <% @projects_name.each do |name| %>
+    <% if name == @current_project_name %>
+      <li class="active">
+      <%= link_to name, '#' %>
+      </li>
+    <% else %>
+      <li>
+      <%= link_to name, {:controller =>'projects',:action => 'show', :current_project_name=>name} %> 
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
