@@ -6,7 +6,7 @@
       </li>
     <% else %>
       <li>
-      <%= link_to name, {:controller =>'projects',:action => 'show', :current_project_name=>name} %> 
+      <%= link_to name, {:controller =>'projects',:action => 'switch', :current_project_name=>name, :remote => true} %> 
       </li>
     <% end %>
   <% end %>

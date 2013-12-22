@@ -3,14 +3,12 @@
   <h1>Show Project</h1>
   <div class="row">
     <aside class="span4">
-      <section>
+      <section id="name_list">
         <%= render 'projects/name_list' %>
       </section>
     </aside>
-    <div class="span8">
+    <div class="span8" id="episode">
       <%= render 'projects/detail_list' %>
-      <%= link_to "Share", share_path,
-                    class: "btn btn-large btn-primary" %>
     </div>
   </div>
 <% else %>

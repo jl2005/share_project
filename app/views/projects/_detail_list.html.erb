@@ -1,3 +1,33 @@
+<% if @share %>
+<%= form_tag "/share_to" do %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>id</th>
+      <th>user</th>
+      <th>time</th>
+      <th>comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @current_project.each do |episode| %>
+    <tr>
+      <td><%= check_box_tag "episode[episode_ids][]", episode.id %></td>
+      <td><%= episode.id %></td>
+      <td><%= episode.user.name %></td>
+      <td><%= episode.created_at %></td>
+      <td><%= episode.comment %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "UnShare", unshare_path,
+            class: "btn btn-large btn-primary" %>
+<%= select_tag "user_id", options_from_collection_for_select(@users, "id", "name") %> 
+<%= submit_tag "Change", :class => "submit", class: "btn btn-large btn-primary" %>
+<% end %>
+<% else %>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -18,4 +48,7 @@
     <% end %>
   </tbody>
 </table>
+<%= link_to "Share", share_path,
+            class: "btn btn-large btn-primary" %>
+<% end %>
 

@@ -28,6 +28,10 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @share=session[:share] ? session[:share] : false
+    if @share
+      @users = User.all
+    end
     if params[:current_project_name]
       @current_project_name = params[:current_project_name]
     end
@@ -37,14 +41,28 @@ class ProjectsController < ApplicationController
     @current_project ||= projects[@current_project_name]
   end
 
-  def share
-    if params[:current_project_name]
-      @current_project_name = params[:current_project_name]
-    end
+  def switch
+    #TODO use session
+    @share=session[:share]
+    @current_project_name = params[:current_project_name]
     projects = current_user.get_projects
     @projects_name = projects.keys
     @current_project_name ||= @projects_name[0]
     @current_project ||= projects[@current_project_name]
+    respond_to do |format|
+      format.html {redirect_to show_path}
+      format.js
+    end
+  end
+
+  def share
+    session[:share]=true
+    redirect_to project_show_path
+  end
+
+  def unshare
+    session[:share]=false
+    redirect_to project_show_path
   end
 private
     def project_params
@@ -54,6 +72,4 @@ private
       @project = current_user.projects.find_by(id: params[:id])
       redirect_to root_url if @project.nil?
     end
-
-    def 
 end
