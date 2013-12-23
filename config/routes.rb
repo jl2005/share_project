@@ -11,9 +11,10 @@ ShareProject::Application.routes.draw do
 
   match '/newproject',  to: 'projects#new',     via: 'get'
   match '/project_show',  to: 'projects#show',  via: 'get'
-  match '/project_switch',  to: 'projects#switch',  via: 'get'
+  match '/project_switch', to: 'projects#switch',  via: 'get'
   match '/share',   to: 'projects#share',       via: 'get'
-  match '/unshare', to: 'projects#unshare',   via: 'get'
+  match '/unshare', to: 'projects#unshare',     via: 'get'
+  match '/share_to',to: 'projects#share_to',    via: 'post'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

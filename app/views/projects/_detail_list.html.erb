@@ -22,10 +22,12 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to "UnShare", unshare_path,
-            class: "btn btn-large btn-primary" %>
-<%= select_tag "user_id", options_from_collection_for_select(@users, "id", "name") %> 
-<%= submit_tag "Change", :class => "submit", class: "btn btn-large btn-primary" %>
+<%= collection_select('user', 'id', @users, :first, :last, {}, html_options={"class"=>"tt"}) %>
+<br />
+<%= link_to "Cancel", unshare_path,
+            class: "btn btn-large btn-default" %>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<%= submit_tag "Finish", :class => "submit", class: "btn btn-large btn-primary" %>
 <% end %>
 <% else %>
 <table class="table table-hover">

@@ -50,3 +50,4 @@ signed_in_user	app/controllers/users_controller.rb	/^	def signed_in_user$/;"	f	c
 signed_in_user	app/helpers/sessions_helper.rb	/^  def signed_in_user$/;"	f	class:SessionsHelper
 store_location	app/helpers/sessions_helper.rb	/^  def store_location$/;"	f	class:SessionsHelper
 user_params	app/controllers/users_controller.rb	/^	def user_params$/;"	f	class:UsersController
+debug	app/views/layouts/application.html.erb	/^      <%= debug(params) if Rails.env.development? /
