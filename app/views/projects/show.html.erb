@@ -1,16 +1,12 @@
 <% provide(:title, 'Show Project') %>
-<% if signed_in? %>
-  <h1>Show Project</h1>
-  <div class="row">
-    <aside class="span4">
-      <section id="name_list">
-        <%= render 'projects/name_list' %>
-      </section>
-    </aside>
-    <div class="span8" id="episode">
-      <%= render 'projects/detail_list' %>
-    </div>
+<h1>Show Project</h1>
+<div class="row">
+  <aside class="span4">
+    <section id="name_list">
+      <%= render 'projects/name_list' %>
+    </section>
+  </aside>
+  <div class="span8" id="episode">
+    <%= render 'projects/detail_list' %>
   </div>
-<% else %>
-  <% redirect root_path %>
-<% end %>
+</div>

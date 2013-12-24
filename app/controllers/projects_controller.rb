@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :signed_in_user, only: [:new, :create, :update, :destroy]
+  before_action :signed_in_user, only: [:new, :create, :update, :destroy, :show, :switch, :share, :unshare, :share_to]
   before_action :correct_user,   only: :destroy
 
   def new
@@ -28,31 +28,17 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    puts self
-    if is_share
-      all_users = User.all
-      @users= Hash[all_users.collect{|u| [u.id, u.name]}]
+    self.init_user
+    if !self.init_project_params
+      redirect_to root_path
     end
-    if params[:current_project_name]
-      @current_project_name = params[:current_project_name]
-    end
-    projects = current_user.get_projects
-    @projects_name = projects.keys
-    @current_project_name ||= @projects_name[0]
-    @current_project ||= projects[@current_project_name]
   end
 
   def switch
-    #TODO use session
-    if is_share
-      all_users = User.all
-      @users = Hash[all_users.collect{|u| [u.id, u.name]}]
+    self.init_user
+    if !self.init_project_params
+      redirect_to root_path
     end
-    @current_project_name = params[:current_project_name]
-    projects = current_user.get_projects
-    @projects_name = projects.keys
-    @current_project_name ||= @projects_name[0]
-    @current_project ||= projects[@current_project_name]
     respond_to do |format|
       format.html {redirect_to show_path}
       format.js
@@ -73,22 +59,46 @@ class ProjectsController < ApplicationController
     user_id = params[:user][:id]
     episodes = params[:episode][:episode_ids]
     episodes.each do |e|
+      if Relationship.exists?({:user_id=>user_id, :project_id=>e})
+        puts "It is exist"
+        next
+      end
       r = Relationship.new
       r.user_id = user_id
       r.project_id = e
       r.save
     end
   end
-  def is_share=(s)
-    @is_share = s
+
+  def init_user
+    if is_share
+      @users= Hash[User.all.collect{|u| [u.id, u.name]}]
+      @users.delete_if{|k, v| k == current_user.id}
+    end
   end
-  def is_share
-    @is_share ||= false
+
+  def init_project_params
+    projects = current_user.get_projects
+    @projects_name = projects.keys
+    if params[:current_project_name]
+      session[:current_project_name] = params[:current_project_name]
+      @current_project_name = params[:current_project_name]
+    elsif session[:current_project_name]
+      @current_project_name = session[:current_project_name]
+    elsif @projects_name
+      @current_project_name = @projects_name[0]
+    else
+      return false
+    end
+    @current_project = projects[@current_project_name]
+    return true
   end
+
 private
     def project_params
       params.require(:project).permit(:name, :parameter1, :parameter2, :comment)
     end
+
     def correct_user
       @project = current_user.projects.find_by(id: params[:id])
       redirect_to root_url if @project.nil?

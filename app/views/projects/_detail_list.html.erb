@@ -1,56 +1,6 @@
-<% if @share %>
-<%= form_tag "/share_to" do %>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>id</th>
-      <th>user</th>
-      <th>time</th>
-      <th>comment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @current_project.each do |episode| %>
-    <tr>
-      <td><%= check_box_tag "episode[episode_ids][]", episode.id %></td>
-      <td><%= episode.id %></td>
-      <td><%= episode.user.name %></td>
-      <td><%= episode.created_at %></td>
-      <td><%= episode.comment %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= collection_select('user', 'id', @users, :first, :last, {}, html_options={"class"=>"tt"}) %>
-<br />
-<%= link_to "Cancel", unshare_path,
-            class: "btn btn-large btn-default" %>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<%= submit_tag "Finish", :class => "submit", class: "btn btn-large btn-primary" %>
-<% end %>
+<% if is_share %>
+  <%= render 'projects/share' %>
 <% else %>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>user</th>
-      <th>time</th>
-      <th>comment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @current_project.each do |episode| %>
-    <tr>
-      <td><%= episode.id %></td>
-      <td><%= episode.user.name %></td>
-      <td><%= episode.created_at %></td>
-      <td><%= episode.comment %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to "Share", share_path,
-            class: "btn btn-large btn-primary" %>
+  <%= render 'projects/unshare' %>
 <% end %>
 

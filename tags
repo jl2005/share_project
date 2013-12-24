@@ -14,7 +14,6 @@ CreateUsers	db/migrate/20131221033506_create_users.rb	/^class CreateUsers < Acti
 Relationship	app/models/relationship.rb	/^class Relationship < ActiveRecord::Base$/;"	c
 RelationshipsController	app/controllers/relationships_controller.rb	/^class RelationshipsController < ApplicationController$/;"	c
 SessionsController	app/controllers/sessions_controller.rb	/^class SessionsController < ApplicationController$/;"	c
-SessionsHelper	app/helpers/sessions_helper.rb	/^module SessionsHelper$/;"	m
 ShareProject	config/application.rb	/^module ShareProject$/;"	m
 StaticPagesController	app/controllers/static_pages_controller.rb	/^class StaticPagesController < ApplicationController$/;"	c
 UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
@@ -30,9 +29,6 @@ correct_user	app/controllers/users_controller.rb	/^	def correct_user$/;"	f	class
 create	app/controllers/relationships_controller.rb	/^  def create$/;"	f	class:RelationshipsController
 create	app/controllers/sessions_controller.rb	/^  def create$/;"	f	class:SessionsController
 create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
-current_user	app/helpers/sessions_helper.rb	/^  def current_user$/;"	f	class:SessionsHelper
-current_user=	app/helpers/sessions_helper.rb	/^  def current_user=(user)$/;"	f	class:SessionsHelper
-current_user?	app/helpers/sessions_helper.rb	/^  def current_user? (user)$/;"	f	class:SessionsHelper
 destroy	app/controllers/relationships_controller.rb	/^  def destroy$/;"	f	class:RelationshipsController
 destroy	app/controllers/sessions_controller.rb	/^  def destroy$/;"	f	class:SessionsController
 full_title	app/helpers/application_helper.rb	/^	def full_title(page_title)$/;"	f	class:ApplicationHelper
@@ -41,13 +37,8 @@ help	app/controllers/static_pages_controller.rb	/^  def help$/;"	f	class:StaticP
 home	app/controllers/static_pages_controller.rb	/^  def home$/;"	f	class:StaticPagesController
 new	app/controllers/sessions_controller.rb	/^	def new$/;"	f	class:SessionsController
 new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
-redirect_back_or	app/helpers/sessions_helper.rb	/^  def redirect_back_or(default)$/;"	f	class:SessionsHelper
 show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
-sign_in	app/helpers/sessions_helper.rb	/^  def sign_in(user)$/;"	f	class:SessionsHelper
-sign_out	app/helpers/sessions_helper.rb	/^  def sign_out$/;"	f	class:SessionsHelper
-signed_in?	app/helpers/sessions_helper.rb	/^  def signed_in?$/;"	f	class:SessionsHelper
 signed_in_user	app/controllers/users_controller.rb	/^	def signed_in_user$/;"	f	class:UsersController
-signed_in_user	app/helpers/sessions_helper.rb	/^  def signed_in_user$/;"	f	class:SessionsHelper
-store_location	app/helpers/sessions_helper.rb	/^  def store_location$/;"	f	class:SessionsHelper
 user_params	app/controllers/users_controller.rb	/^	def user_params$/;"	f	class:UsersController
-debug	app/views/layouts/application.html.erb	/^      <%= debug(params) if Rails.env.development? /
+exists	app/controllers/projects_controller.rb	/^      if Relationship.exists?({:user_id=>user_id, /
+new	app/controllers/projects_controller.rb	/^    @project = Project.new()$/
