@@ -40,5 +40,7 @@ new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
 show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
 signed_in_user	app/controllers/users_controller.rb	/^	def signed_in_user$/;"	f	class:UsersController
 user_params	app/controllers/users_controller.rb	/^	def user_params$/;"	f	class:UsersController
-exists	app/controllers/projects_controller.rb	/^      if Relationship.exists?({:user_id=>user_id, /
+has_key	app/controllers/projects_controller.rb	/^    puts params.has_key?(:user)$/
 new	app/controllers/projects_controller.rb	/^    @project = Project.new()$/
+permit	app/controllers/projects_controller.rb	/^      params.require(:project).permit(:name, :para/
+push	app/controllers/projects_controller.rb	/^        array.push(e)$/

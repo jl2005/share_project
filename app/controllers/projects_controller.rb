@@ -56,11 +56,19 @@ class ProjectsController < ApplicationController
   end
 
   def share_to
+    puts params.has_key?(:user)
+    puts params.has_key?(:episode)
+    if !params.has_key?(:user) || !params.has_key?(:episode)
+      flash[:error] = 'NOT choose User or Projects'
+      redirect_to project_show_path
+      return
+    end
     user_id = params[:user][:id]
     episodes = params[:episode][:episode_ids]
+    array = []
     episodes.each do |e|
       if Relationship.exists?({:user_id=>user_id, :project_id=>e})
-        puts "It is exist"
+        array.push(e)
         next
       end
       r = Relationship.new
@@ -68,6 +76,11 @@ class ProjectsController < ApplicationController
       r.project_id = e
       r.save
     end
+    if !array.empty?
+      flash[:note] = "User " + user_id + " already has project " + array.to_json
+    end
+    redirect_to project_show_path
+    return
   end
 
   def init_user
