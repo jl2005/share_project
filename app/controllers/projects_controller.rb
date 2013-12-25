@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :signed_in_user, only: [:new, :create, :update, :destroy, :show, :switch, :share, :unshare, :share_to]
-  before_action :correct_user,   only: :destroy
+  before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy, :show, :switch, :share, :unshare, :share_to]
+  before_action :correct_user,   only: [:destroy]
 
   def new
     @project = Project.new()
@@ -19,6 +19,10 @@ class ProjectsController < ApplicationController
       end
     end
     render 'new'
+  end
+
+  def edit
+    #TODO
   end
 
   def destroy

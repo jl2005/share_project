@@ -1,7 +1,7 @@
 ShareProject::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :projects, only: [:new, :create, :destroy]
+  resources :projects, only: [:new, :create, :edit, :update, :destroy, :show, :switch, :share, :unshare, :share_to]
 
   get "users/new"
   root to: 'static_pages#home'
