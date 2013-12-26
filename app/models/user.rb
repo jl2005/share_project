@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :projects
   has_many :relationships, foreign_key: "user_id", dependent: :destroy
-  #has_many :projects, through: :relationships, source: :project_id
+  #has_many :projects, :through: :relationships, :source: :project_id, :source_type: "Project"
 
   before_save { self.email = email.downcase }
   validates :name, presence:true, length: {maximum: 50}

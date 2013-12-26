@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy, :show, :switch, :share, :unshare, :share_to]
-  before_action :correct_user,   only: [:destroy]
+  #TODO yanzheng shi fou zheng que
+  #before_action :correct_user,   only: [:destroy]
 
   def new
     @project = Project.new()
@@ -26,13 +27,21 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @relation.destroy
-    #@project.destroy
-    redirect_to root_url
+    puts params[:id]
+    if !params.has_key?(:id)
+      redirect_to root_url
+    end
+    if Relationship.where("user_id = #{current_user.id} AND project_id =#{params[:id]}").destroy_all
+      flash[:note] = "Detete project " + params[:id]
+    else 
+      flash[:error] = "Error params"
+    end
+    redirect_to project_show_url
   end
 
   def show
     self.init_user
+    puts self.init_user.to_json
     if !self.init_project_params
       redirect_to root_path
     end
@@ -44,7 +53,7 @@ class ProjectsController < ApplicationController
       redirect_to root_path
     end
     respond_to do |format|
-      format.html {redirect_to show_path}
+      format.html {redirect_to project_show_path}
       format.js
     end
   end
@@ -68,6 +77,7 @@ class ProjectsController < ApplicationController
       return
     end
     user_id = params[:user][:id]
+    user_name = User.find(user_id).name
     episodes = params[:episode][:episode_ids]
     array = []
     episodes.each do |e|
@@ -80,8 +90,12 @@ class ProjectsController < ApplicationController
       r.project_id = e
       r.save
     end
+    success = episodes - array
+    if !success.empty?
+      flash[:note] = "Share projects " + success.to_json + " to User " + user_name + "."
+    end
     if !array.empty?
-      flash[:note] = "User " + user_id + " already has project " + array.to_json
+      flash[:note] += "User " + user_name + " already has project " + array.to_json + "."
     end
     redirect_to project_show_path
     return
@@ -102,10 +116,12 @@ class ProjectsController < ApplicationController
       @current_project_name = params[:current_project_name]
     elsif session[:current_project_name]
       @current_project_name = session[:current_project_name]
-    elsif @projects_name
-      @current_project_name = @projects_name[0]
-    else
+    end
+    if @projects_name.blank?
       return false
+    end
+    if @current_project_name.blank? || !@projects_name.include?(@current_project_name)
+      @current_project_name = @projects_name[0]
     end
     @current_project = projects[@current_project_name]
     return true
