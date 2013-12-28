@@ -23,7 +23,10 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    #TODO
+    @prject = Porject.find(params[:id])
+  end
+
+  def update
   end
 
   def destroy

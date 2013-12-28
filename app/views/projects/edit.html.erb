@@ -1,0 +1,17 @@
+<% provide(:title, "Edit project") %>
+<h1>Update project profile</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@project) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :parameter1 %>
+      <%= f.text_field :parameter1 %>
+      <%= f.label :parameter2 %>
+      <%= f.text_field :parameter2 %>
+      <%= f.label :comment %>
+      <%= f.text_area :comment, placeholder: "Add some word ..." %>
+      <%= f.submit "Change project", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
