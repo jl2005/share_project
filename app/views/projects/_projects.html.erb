@@ -1,11 +1,9 @@
 <% if @project_items.any? %>
   <ol class="microposts">
     <% @project_items.each do |name, values| %>
-      <%= name %>
-      <% values.each do |v| %>
-        <%= v.to_json %>
-      <% end %>
-      <br />
+		<li>
+		<%= link_to name, {:controller =>'projects',:action => 'show', :current_project_name => name} %>
+		</li>
     <% end %>
   </ol>
 <% end %>

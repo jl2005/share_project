@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.build(project_params)
     if @project.save
+	#TODO 应该吧relation的更新移动到project中
       @relation = current_user.relationships.build(project_id: @project.id)
       if @relation.save
         flash[:success] = "project created!"
@@ -23,10 +24,22 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @prject = Porject.find(params[:id])
+    @project = Project.find(params[:id])
   end
 
   def update
+    @project = current_user.projects.build(project_params)
+    if @project.save
+      @relation = current_user.relationships.build(project_id: @project.id)
+      if @relation.save
+        flash[:success] = "project created!"
+        redirect_to project_show_path
+        return
+      else
+        @project.destory
+      end
+    end
+    render 'new'
   end
 
   def destroy
@@ -44,7 +57,6 @@ class ProjectsController < ApplicationController
 
   def show
     self.init_user
-    puts self.init_user.to_json
     if !self.init_project_params
       redirect_to root_path
     end

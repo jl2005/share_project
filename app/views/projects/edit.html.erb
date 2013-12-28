@@ -5,6 +5,7 @@
   <div class="span6 offset3">
     <%= form_for(@project) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
+      <%= f.hidden_field :name %>
       <%= f.label :parameter1 %>
       <%= f.text_field :parameter1 %>
       <%= f.label :parameter2 %>

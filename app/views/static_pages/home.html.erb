@@ -7,11 +7,12 @@
       </section>
     </aside>
     <div class="span8">
-      <%= link_to "Create Project", newproject_path, 
-                                class: "btn btn-large btn-primary" %>
-      <h3>Projects</h3>
+      <h3>You have projects</h3>
       <%= render 'projects/projects' %>
-      
+      <div class="text-right">
+      <%= link_to "Create Project", newproject_path, 
+                                class: "btn btn-default btn-primary" %>
+      </div>
     </div>
   </div>
 <% else %>

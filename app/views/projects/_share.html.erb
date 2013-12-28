@@ -20,13 +20,13 @@
       <td><%= episode.comment %></td>
       <td>
          <%= link_to edit_project_path(episode),
-          class:"btn btn-primary btn-small" do %>
+          class:"btn btn-primary btn-mini" do %>
           <i class="icon-white icon-edit"></i> Edit
         <% end %>
         &nbsp;&nbsp;
         <%= link_to episode, method: :delete,
           data: { confirm: "You sure?" }, 
-          class:"btn btn-danger btn-small" do %>
+          class:"btn btn-danger btn-mini" do %>
           <i class="icon-white icon-remove"></i> Delete
         <% end %>
       </td>
@@ -34,10 +34,15 @@
     <% end %>
   </tbody>
 </table>
+<strong>
+  Share to:&nbsp;&nbsp;
+</strong>
 <%= collection_select('user', 'id', @users, :first, :last, {}, html_options={"class"=>"tt"}) %>
 <br />
+<div class="text-center">
 <%= link_to "Cancel", unshare_path,
-            class: "btn btn-large btn-default" %>
+            class: "btn btn-default" %>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<%= submit_tag "Finish", :class => "submit", class: "btn btn-large btn-primary" %>
+<%= submit_tag "Finish", :class => "submit", class: "btn btn-default btn-primary" %>
+</div>
 <% end %>
