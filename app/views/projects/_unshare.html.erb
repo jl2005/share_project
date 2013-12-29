@@ -17,13 +17,13 @@
       <td><%= episode.comment %></td>
       <td>
          <%= link_to edit_project_path(episode),
-          class:"btn btn-primary btn-small" do %>
+          class:"btn btn-primary btn-mini" do %>
           <i class="icon-white icon-edit"></i> Edit
         <% end %>
         &nbsp;&nbsp;
         <%= link_to episode, method: :delete,
           data: { confirm: "You sure?" }, 
-          class:"btn btn-danger btn-small" do %>
+          class:"btn btn-danger btn-mini" do %>
           <i class="icon-white icon-remove"></i> Delete
         <% end %>
       </td>
@@ -31,6 +31,8 @@
     <% end %>
   </tbody>
 </table>
+<div class="text-center">
 <%= link_to "Share", share_path,
-            class: "btn btn-large btn-primary" %>
+            class: "btn btn-default btn-primary" %>
+</div>
 

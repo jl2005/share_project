@@ -28,6 +28,10 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    if params[:commit] == "Cancel"
+      redirect_to project_show_path
+      return
+    end
     @project = current_user.projects.build(project_params)
     if @project.save
       @relation = current_user.relationships.build(project_id: @project.id)

@@ -230,6 +230,7 @@ targetLink	public/assets/application-2774a9b42797b33d3181b5ae559129a6.js	/^  tar
 triggerEvent	public/assets/application-2774a9b42797b33d3181b5ae559129a6.js	/^  triggerEvent = function(name) {$/;"	f
 unshare	app/controllers/projects_controller.rb	/^  def unshare$/;"	f	class:ProjectsController
 update	app/controllers/projects_controller.rb	/^  def update$/;"	f	class:ProjectsController
+update	app/controllers/users_controller.rb	/^	def update$/;"	f	class:UsersController
 user_params	app/controllers/users_controller.rb	/^	def user_params$/;"	f	class:UsersController
 var.Button	public/assets/application-2774a9b42797b33d3181b5ae559129a6.js	/^  Button.prototype.setState = function (state) {$/;"	c
 var.Carousel	public/assets/application-2774a9b42797b33d3181b5ae559129a6.js	/^  Carousel.prototype = {$/;"	c

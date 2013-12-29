@@ -1,8 +1,11 @@
 <% provide(:title, 'Help') %>
 <h1>Help</h1>
 <p>
-  Get help on the Ruby on Rails Tutorial at the
-  <a href="http://railstutorial.org/help">Rails Tutorial help page</a>.
-  To get help on this sample app, see the
-  <a href="http://railstutorial.org/book">Rails Tutorial book</a>.
+This site is synchronize two users' project.
+<ol>
+  <li>User A create Project X, his every change will generates a new scenario.</li>
+  <li>For the generation of these scenario, user A could selectively share to user B(all scenario or 3 selected cases)</li>
+  <li>User B modify the model will generate a new scenario. He could change share Project X to others.</li>
+</ol>
+The scenario is like a snapshot, is fixed. The scenario of each change will create a new scenario.
 </p>

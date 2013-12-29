@@ -6,13 +6,19 @@
     <%= form_for(@project) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.hidden_field :name %>
+
       <%= f.label :parameter1 %>
       <%= f.text_field :parameter1 %>
+
       <%= f.label :parameter2 %>
       <%= f.text_field :parameter2 %>
+
       <%= f.label :comment %>
       <%= f.text_area :comment, placeholder: "Add some word ..." %>
-      <%= f.submit "Change project", class: "btn btn-large btn-primary" %>
+
+      <%= f.submit "Cancel", class: "btn" %>
+      &nbsp;&nbsp;
+      <%= f.submit "Change project", class: "btn btn-default btn-primary" %>
     <% end %>
   </div>
 </div>
